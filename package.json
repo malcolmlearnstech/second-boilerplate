@@ -1,0 +1,19 @@
+{
+  "name": "second-boilerplate",
+  "version": "1.0.0",
+  "description": "second boilerplate meant to be a beginning template for future site builds",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/malcolmlearnstech/second-boilerplate.git"
+  },
+  "author": "Malcolm M.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/malcolmlearnstech/second-boilerplate/issues"
+  },
+  "homepage": "https://github.com/malcolmlearnstech/second-boilerplate#readme"
+}
