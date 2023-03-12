@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/malcolmlearnstech/second-boilerplate/issues"
   },
-  "homepage": "https://github.com/malcolmlearnstech/second-boilerplate#readme"
+  "homepage": "https://github.com/malcolmlearnstech/second-boilerplate#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }
