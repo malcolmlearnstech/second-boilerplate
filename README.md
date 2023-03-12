@@ -1,2 +1,3 @@
-# second-boilerplate
-This will be a boilerplate that does not make use of backend, frontend, and redux. But it will not use any authentication.
+# Boilerplate (No Auth)
+
+This will be a boilerplate that makes use of backend, frontend, and redux; but it will not use any authentication.
