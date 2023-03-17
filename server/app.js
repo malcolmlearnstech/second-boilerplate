@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const path = require('path');
 const bodyParser = require('body-parser');
 
 /*
@@ -18,3 +19,24 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //will match all backend requests using '/api'
 app.use('/api', require('./api'));
+
+//backend will serve up the index.html for any requests that don't match to an existing backend route
+app.get('*', function (req, res) {
+  res.sendFile(path.join(__dirname, '../public/index.html'));
+});
+
+//error handling for any uncaught errors
+app.use(function (err, req, res, next) {
+  console.error(err);
+  console.error(err.stack);
+  res.status(err.status || 500).send(err.message || 'Internal server error.');
+});
+
+//set up backend to listen for requests
+const port = process.env.PORT || 2000;
+
+app.listen(port, function () {
+  console.log('Knock, knock');
+  console.log("Who's there");
+  console.log(`Your server, listening on port ${port}`);
+});
