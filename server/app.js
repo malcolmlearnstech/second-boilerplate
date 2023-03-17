@@ -18,3 +18,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //will match all backend requests using '/api'
 app.use('/api', require('./api'));
+
+//backend will serve up the index.html for any requests that don't match to an existing backend route
+app.get('*', function (req, res) {
+  res.sendFile(path.join(__dirname, '../public/index.html'));
+});
