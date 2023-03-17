@@ -23,3 +23,10 @@ app.use('/api', require('./api'));
 app.get('*', function (req, res) {
   res.sendFile(path.join(__dirname, '../public/index.html'));
 });
+
+//error handling for any uncaught errors
+app.use(function (err, req, res, next) {
+  console.error(err);
+  console.error(err.stack);
+  res.status(err.status || 500).send(err.message || 'Internal server error.');
+});
