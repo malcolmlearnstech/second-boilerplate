@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { models: Task } = require('../db/index');
+const { Task } = require('../db/index');
 
 //matches GET requests to '/api/tasks/' for ALL TASKS
 router.get('/', async (req, res, next) => {
