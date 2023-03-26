@@ -21,11 +21,13 @@ router.get('/:userId', async (req, res, next) => {
   }
 });
 
-//matches POST requests to '/api/:userId' to CREATE A USER
-router.post('/:userId', async (req, res, next) => {
-  /* 
-ADD IN ROUTE CODE LATER AFTER MAKING DATABASE
-*/
+//matches POST requests to '/api/users' to CREATE A USER
+router.post('/', async (req, res, next) => {
+  try {
+    res.status(201).send(await User.create(req.body));
+  } catch (error) {
+    next(error);
+  }
 });
 
 //matches PUT requests to '/api/:userId' to UPDATE A USER
