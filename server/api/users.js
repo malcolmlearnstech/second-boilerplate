@@ -13,9 +13,12 @@ router.get('/', async (req, res, next) => {
 
 //matches GET requests to '/api/:userId' to VIEW A SPECIFIC USER
 router.get('/:userId', async (req, res, next) => {
-  /* 
-ADD IN ROUTE CODE LATER AFTER MAKING DATABASE
-*/
+  try {
+    const user = await User.findByPk(req.params.userId);
+    res.send(user);
+  } catch (error) {
+    next(error);
+  }
 });
 
 //matches POST requests to '/api/:userId' to CREATE A USER
