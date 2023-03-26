@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { models: User } = require('../db/index');
+const { User } = require('../db/index');
 
 //matches GET requests to '/api/users' to VIEW ALL USERS
 router.get('/', async (req, res, next) => {
