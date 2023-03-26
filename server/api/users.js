@@ -11,7 +11,7 @@ router.get('/', async (req, res, next) => {
   }
 });
 
-//matches GET requests to '/api/:userId' to VIEW A SPECIFIC USER
+//matches GET requests to '/api/users/:userId' to VIEW A SPECIFIC USER
 router.get('/:userId', async (req, res, next) => {
   try {
     const user = await User.findByPk(req.params.userId);
@@ -32,9 +32,15 @@ router.post('/', async (req, res, next) => {
 
 //matches PUT requests to '/api/:userId' to UPDATE A USER
 router.put('/:userId', async (req, res, next) => {
-  /* 
-ADD IN ROUTE CODE LATER AFTER MAKING DATABASE
-*/
+  try {
+    const user = await User.findByPk(req, params.userId, {
+      include: User,
+    });
+    await user.update();
+    res.send(user);
+  } catch (error) {
+    next(error);
+  }
 });
 
 //matches DELETE requests to '/api/:userID' to DELETE A USER
