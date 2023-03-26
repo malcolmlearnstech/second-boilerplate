@@ -1,10 +1,14 @@
 const router = require('express').Router();
+const { models: User } = require('../db/index');
 
 //matches GET requests to '/api/users' to VIEW ALL USERS
 router.get('/', async (req, res, next) => {
-  /* 
-ADD IN ROUTE CODE LATER AFTER MAKING DATABASE
-*/
+  try {
+    const users = await User.findAll();
+    res.send(users);
+  } catch (error) {
+    next(error);
+  }
 });
 
 //matches GET requests to '/api/:userId' to VIEW A SPECIFIC USER
