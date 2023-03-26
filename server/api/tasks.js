@@ -21,7 +21,7 @@ router.get('/:taskId', async (req, res, next) => {
   }
 });
 
-//matches POST requests to '/api/tasks/:taskId' to CREATE A TASK
+//matches POST requests to '/api/tasks/' to CREATE A TASK
 router.post('/', async (req, res, next) => {
   try {
     res.status(201).send(await Task.create(req.body));
