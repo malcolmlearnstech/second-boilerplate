@@ -30,7 +30,7 @@ router.post('/', async (req, res, next) => {
   }
 });
 
-//matches PUT requests to '/api/:userId' to UPDATE A USER
+//matches PUT requests to '/api/users/:userId' to UPDATE A USER
 router.put('/:userId', async (req, res, next) => {
   try {
     const user = await User.findByPk(req, params.userId, {
@@ -43,11 +43,15 @@ router.put('/:userId', async (req, res, next) => {
   }
 });
 
-//matches DELETE requests to '/api/:userID' to DELETE A USER
+//matches DELETE requests to '/api/users/:userID' to DELETE A USER
 router.delete('/:userId', async (req, res, next) => {
-  /* 
-ADD IN ROUTE CODE LATER AFTER MAKING DATABASE
-*/
+  try {
+    const user = await User.findByPk(req.params.userId, {});
+    await user.destroy();
+    res.send(user);
+  } catch (error) {
+    next(error);
+  }
 });
 
 module.exports = router;
